@@ -20,7 +20,7 @@ listint_t *insert_node(listint_t **head, int number)
 		return (NULL);
 	}
 	node->n = number;
-	if (node->n < (*head)->n)
+	if (node->n < (*head)->n || *head == NULL)
 	{
 		node->next = *head;
 		*head = node;
