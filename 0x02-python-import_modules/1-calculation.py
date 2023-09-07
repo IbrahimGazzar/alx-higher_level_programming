@@ -3,7 +3,6 @@ import calculator_1 as calc
 
 a = 10
 b = 5
-
 if __name__ == "__main__":
     import sys
     print("{} + {} = {}".format(a, b, calc.add(a, b)))
