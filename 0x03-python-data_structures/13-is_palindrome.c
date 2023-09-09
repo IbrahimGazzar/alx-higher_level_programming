@@ -3,34 +3,50 @@
 #include "lists.h"
 
 /**
+ * reverseList - reverses the list
+ * @head: point to start reversing from
+ *
+ * Return: head of the reversed list
+ */
+listint_t *reverseList(listint_t *head)
+{
+	listint_t *prev = NULL, *next = NULL;
+	listint_t *crnt = head;
+
+	while (crnt != NULL)
+	{
+		next = crnt->next;
+		crnt->next = prev;
+		prev = crnt;
+		crnt = next;
+	}
+	return (prev);
+}
+/**
  * is_palindrome - checks if a linked list is a palindrome or not
  * @head: list to be checked
  *
  * Return: 0 if not palindrome, 1 if palindrome
  */
-
 int is_palindrome(listint_t **head)
 {
 	listint_t *s_ptr = *head, *e_ptr = *head;
-	int i, k, len = 0;
+	listint_t *half = NULL;
 
-	if (head == NULL || *head == NULL)
+	if (head == NULL)
 		return (1);
-	while (e_ptr != NULL)
+	while (e_ptr != NULL && e_ptr->next != NULL)
 	{
-		len++;
-		e_ptr = e_ptr->next;
-	}
-	for (i = 0; i <= (len - 1) / 2; i++)
-	{
-		e_ptr = *head;
-		for (k = len - i - 1; k > 0; k--)
-		{
-			e_ptr = e_ptr->next;
-		}
-		if (s_ptr->n != e_ptr->n)
-			return (0);
 		s_ptr = s_ptr->next;
+		e_ptr = e_ptr->next->next;
+	}
+	half = reverseList(s_ptr);
+	while (half != NULL)
+	{
+		if((*head)->n != half->n)
+			return (0);
+		*head = (*head)->next;
+		half = half->next;
 	}
 	return (1);
 }
