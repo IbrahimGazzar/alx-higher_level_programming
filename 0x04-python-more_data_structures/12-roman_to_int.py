@@ -1,12 +1,10 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
-    num = None
-    if type(roman_string) != "<class 'str'>":
-        return num
+    num = 0
+    if not isinstance(roman_string, str):
+        return 0
     leng = len(roman_string)
     for i in range(leng):
-        if not num:
-            num = 0
         if roman_string[i] == 'M':
             num += 1000
         elif roman_string[i] == 'D':
