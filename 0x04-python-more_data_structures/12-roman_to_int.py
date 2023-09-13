@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
     num = None
+    if type(roman_string) != "<class 'str'>":
+        return num
     leng = len(roman_string)
     for i in range(leng):
         if not num:
