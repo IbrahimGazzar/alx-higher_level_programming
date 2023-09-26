@@ -21,8 +21,8 @@ class Square:
                 size (int): given side length of the square
                 position ((int, int)): given position to manipulate
         """
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
@@ -50,14 +50,15 @@ class Square:
         return self.__position
 
     @position.setter
-    def position(self, value):
+    def position(self, position):
         """
             setter for position
             Args:
-                 value ((int, int)): value of position
+                 position ((int, int)): value of position
         """
-        if not isinstance(position, (int, int)) or position[0] < 0\
-           or position[1] < 0:
+        if not isinstance(position, tuple) or len(position) != 2 or \
+           not isinstance(position[0], int) or not isinstance(position[1], int) or \
+           position[0] < 0 or position[1] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = position
 
