@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
-""" 3 - Square
+""" 6 - Square
         Create a square that can calculate its own area
+        It can also be printed on screen, with the ability to
+        manipulate its position
 """
 
 
@@ -32,7 +34,7 @@ class Square:
         """
             setter for the size attribute
             Args:
-                @size: square side length
+                 size (int):square side length
         """
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
@@ -52,7 +54,7 @@ class Square:
         """
             setter for position
             Args:
-                 @value: value of position
+                 value ((int, int)): value of position
         """
         if not isinstance(position, (int, int)) or position[0] < 0
         or position[1] < 0:
@@ -68,6 +70,8 @@ class Square:
     def my_print(self):
         """
             print a silly square
+
+            and use the position variable to manipulte the square's poisition
         """
         for i in range(0, self.position[1]):
             print("")
