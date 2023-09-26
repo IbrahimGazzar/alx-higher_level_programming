@@ -73,6 +73,9 @@ class Square:
 
             and use the position variable to manipulte the square's poisition
         """
+        if self.__size == 0:
+            print("")
+            return
         for i in range(0, self.position[1]):
             print("")
         for i in range(0, self.__size):
@@ -80,6 +83,4 @@ class Square:
                 print(" ", end="")
             for j in range(0, self.__size):
                 print("#", end="")
-            print("")
-        if self.__size == 0:
             print("")
