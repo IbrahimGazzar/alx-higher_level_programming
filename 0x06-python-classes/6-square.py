@@ -10,6 +10,7 @@ class Square:
 
         Attributes:
               __size (int): length of the square's sides
+              __position ((int, int)): position of the square on screen
     """
     def __init__(self, size=0, position=(0, 0)):
         """ This function intializes an object of type Square
@@ -50,7 +51,6 @@ class Square:
     def position(self, value):
         """
             setter for position
-
             Args:
                  @value: value of position
         """
