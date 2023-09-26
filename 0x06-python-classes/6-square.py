@@ -50,6 +50,9 @@ class Square:
     def position(self, value):
         """
             setter for position
+
+            Args:
+                 @value: value of position
         """
         if not isinstance(position, (int, int)) or position[0] < 0
         or position[1] < 0:
