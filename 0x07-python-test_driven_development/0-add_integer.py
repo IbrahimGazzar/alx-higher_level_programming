@@ -1,0 +1,34 @@
+#!/usr/bin/python3
+
+""" This module contains a simple adding function
+    to be appropriately tested using doctest """
+
+def add_integer(a, b=98):
+    """
+       This function does simple adding, however
+       in case no second input is given, it's always
+       assumed to be an integer of value 98.
+
+      Some examples for this function's integration:
+      >>> add_integer(34, 35)
+      69
+      >>> add_integer(0)
+      98
+      >>> add_integer(1, -1)
+      0
+      >>> add_integer(-2, -9.0)
+      -11
+      >>> add_integer('hello')
+      Traceback (most recent call last):
+          ...
+      TypeError: a must be an integer
+      >>> add_integer(98, 'not 98')
+      Traceback (most recent call last):
+          ...
+      TypeError: b must be an integer
+    """
+    if type(a) not in [int, float]:
+        raise TypeError("a must be an integer")
+    if type(b) not in [int, float]:
+        raise TypeError("b must be an integer")
+    return int(a) + int(b)
