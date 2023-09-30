@@ -34,36 +34,25 @@ Other examples for this function:
 	>>> text_indentation("is.you.is?or, is.you.aint:my.baby.")
 	is.
 	<BLANKLINE>
-	<BLANKLINE>
 	you.
-	<BLANKLINE>
 	<BLANKLINE>
 	is?
 	<BLANKLINE>
-	<BLANKLINE>
 	or, is.
-	<BLANKLINE>
 	<BLANKLINE>
 	you.
 	<BLANKLINE>
-	<BLANKLINE>
 	aint:
-	<BLANKLINE>
 	<BLANKLINE>
 	my.
 	<BLANKLINE>
-	<BLANKLINE>
 	baby.
 	<BLANKLINE>
-	<BLANKLINE>
 
-	>>> text.indentation(",.!@;:[]/?")
+	>>> text_indentation(",.!@;:[]/?")
 	,.
-	<BLANKLINE>
 	<BLANKLINE>
 	!@;:
 	<BLANKLINE>
-	<BLANKLINE>
 	[]/?
-	<BLANKLINE>
 	<BLANKLINE>
