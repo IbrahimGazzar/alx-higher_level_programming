@@ -1,0 +1,69 @@
+Test suite for 5-text_indentation.py
+=====================================
+
+This text file explains the code provided in 5-text_indentation.py and provides test cases for it
+
+first of all, we have to import our code before we can test it:
+	>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+The function text_indentation(text) takes a input string that prints two new lines after seeing one of
+of the following punctuation marks: '.', '?', ':':
+
+	>>> text_indentation("Hi. How are you? Say with me: I love you!")
+	Hi.
+	<BLANKLINE>
+	How are you?
+	<BLANKLINE>
+	Say with me:
+	<BLANKLINE>
+	I love you!
+
+If the input 'text' isn't string, a type error will be raised:
+
+	>>> text_indentation(80)
+	Traceback (most recent call last):
+	...
+	TypeError: text must be a string
+	>>> text_indentation(['Hi.', 'How are you?'])
+	Traceback (most recent call last):
+	...
+	TypeError: text must be a string
+
+Other examples for this function:
+
+	>>> text_indentation("is.you.is?or, is.you.aint:my.baby.")
+	is.
+	<BLANKLINE>
+	<BLANKLINE>
+	you.
+	<BLANKLINE>
+	<BLANKLINE>
+	is?
+	<BLANKLINE>
+	<BLANKLINE>
+	or, is.
+	<BLANKLINE>
+	<BLANKLINE>
+	you.
+	<BLANKLINE>
+	<BLANKLINE>
+	aint:
+	<BLANKLINE>
+	<BLANKLINE>
+	my.
+	<BLANKLINE>
+	<BLANKLINE>
+	baby.
+	<BLANKLINE>
+	<BLANKLINE>
+
+	>>> text.indentation(",.!@;:[]/?")
+	,.
+	<BLANKLINE>
+	<BLANKLINE>
+	!@;:
+	<BLANKLINE>
+	<BLANKLINE>
+	[]/?
+	<BLANKLINE>
+	<BLANKLINE>
