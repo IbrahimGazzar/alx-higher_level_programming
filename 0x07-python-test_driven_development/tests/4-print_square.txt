@@ -1,0 +1,49 @@
+Test suite for 4-print_square.py
+================================
+
+This text file explains the code provided in 4-print_square.py and provides test cases for it
+
+first of all, we have to import our code before we can test it:
+	>>> print_square = __import__('4-print_square').print_square
+
+The function print_square(size) prints a square made of hashes (#), with its length given as input
+through the "size" input:
+
+	>>> print_square(3)
+	###
+	###
+	###
+
+size has to be a positive integer value, otherwise an error is raised:
+
+	>>> print_square(True)
+	Traceback (most recent call last):
+	...
+	TypeError: size must be an integer
+	>>> print_square(3.00)
+	Traceback (most recent call last):
+	...
+	TypeError: size must be an integer
+	>>> print_square(-9)
+	Traceback (most recent call last):
+	...
+	ValueError: size must be >= 0
+	>>> print_square(-9.00)
+	Traceback (most recent call last):
+	...
+	TypeError: size must be an integer
+
+Other tests for print_square:
+
+	>>> print_square(1)
+	#
+	>>> print_square(0)
+	<BLANKLINE>
+	>>> print_square(2)
+	##
+	##
+	>>> print_square(4)
+	####
+	####
+	####
+	####
