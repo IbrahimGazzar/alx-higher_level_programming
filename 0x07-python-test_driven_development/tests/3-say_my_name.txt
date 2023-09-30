@@ -1,0 +1,49 @@
+Test suite for 3-say_my_name.py
+===============================
+
+This text file explains the code provided in 3-say_my_name.py and provides test cases for it
+
+first of all, we have to import our code before we can test it:
+	>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+The function say_my_name(first_name, last_name="") takes a pair of string inputs, and inserts them in
+a specific certain to be printed, example:
+
+	>>> say_my_name("Ibrahim", "El-Gazzar")
+	My name is Ibrahim El-Gazzar
+
+However, the two given inputs MUST be strings. If either input isn't, a TypeError would be raised:
+
+	>>> say_my_name(90, "Smith")
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
+	>>> say_my_name("John", False)
+	Traceback (most recent call last):
+	...
+	TypeError: last_name must be a string
+	>>> say_my_name(6, 9)
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
+
+However, passing two inputs to the function isn't mandatory. If only one input is passed, the parameter
+last_name is substituted with an empty string:
+
+	>>> say_my_name("Nile")
+	My name is Nile 
+	>>> say_my_name(True)
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
+
+More examples:
+
+	>>> say_my_name(last_name="Smith", first_name="John")
+	My name is John Smith
+	>>> say_my_name("I tried so hard", "and got so far")
+	My name is I tried so hard and got so far
+	>>> say_my_name(["Ahmed", "Awaden"])
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
