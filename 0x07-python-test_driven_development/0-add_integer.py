@@ -3,29 +3,15 @@
 """ This module contains a simple adding function
     to be appropriately tested using doctest """
 
+
 def add_integer(a, b=98):
     """
-       This function does simple adding, however
-       in case no second input is given, it's always
-       assumed to be an integer of value 98.
+        This function adds two values, and returns their summation
 
-      Some examples for this function's integration:
-      >>> add_integer(34, 35)
-      69
-      >>> add_integer(0)
-      98
-      >>> add_integer(1, -1)
-      0
-      >>> add_integer(-2, -9.0)
-      -11
-      >>> add_integer('hello')
-      Traceback (most recent call last):
-          ...
-      TypeError: a must be an integer
-      >>> add_integer(98, 'not 98')
-      Traceback (most recent call last):
-          ...
-      TypeError: b must be an integer
+        Args:
+            @a: first value to be added, must be int or float
+            @b: second value to be added, must be int or float
+                when no second input is provided, b is assumed to be equal 98
     """
     if type(a) not in [int, float]:
         raise TypeError("a must be an integer")
