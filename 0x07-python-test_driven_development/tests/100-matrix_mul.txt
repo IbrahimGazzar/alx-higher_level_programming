@@ -1,0 +1,132 @@
+Test suite for 100-matrix_mul.py
+================================
+
+This text file explains the code provided in 100-matrix_mul.py and provides test cases for it
+
+first of all, we have to import our code before we can test it:
+
+	>>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+The function def matrix_mul(m_a, m_b) takes a pair of matrices and multiplies them, returning a new
+matrix containing the multiplication result:
+
+	>>> matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
+	[[7, 10], [15, 22]]
+	>>> matrix_mul([[1, 2]], [[3, 4], [5, 6]])
+	[[13, 16]]
+
+Its inputs m_a and m_b have to be matrices (i.e. list of lists). Any different type as input will raise 
+a type error:
+
+	>>> matrix_mul([[1, 2], [3, 4]], "matrix")
+	Traceback (most recent call last):
+	...
+	TypeError: m_b must be a list
+	>>> matrix_mul("matrix", [[1, 2], [3, 4]])
+	Traceback (most recent call last):
+	...
+	TypeError: m_a must be a list
+	>>> matrix_mul(True, 90)
+	Traceback (most recent call last):
+	...
+	TypeError: m_a must be a list
+	>>> matrix_mul([1, 2], [[3, 4]])
+	Traceback (most recent call last):
+	...
+	TypeError: m_a must be a list of lists
+	>>> matrix_mul([[1, 2], [3, 4]], [5, 10])
+	Traceback (most recent call last):
+	...
+	TypeError: m_b must be a list of lists
+	>>> matrix_mul([1, 2], [3, 4])
+	Traceback (most recent call last):
+	...
+	TypeError: m_a must be a list of lists
+	>>> matrix_mul([1, 2], False)
+	Traceback (most recent call last):
+	...
+	TypeError: m_b must be a list
+
+Also neither matrix can be empty, that would raise a value error:
+
+	>>> matrix_mul([[1, 2], [3, 4]], [[]])
+	Traceback (most recent call last):
+	...
+	ValueError: m_b can't be empty
+	>>> matrix_mul([], [[1, 2]])
+	Traceback (most recent call last):
+	...
+	ValueError: m_a can't be empty
+	>>> matrix_mul([[]], [])
+	Traceback (most recent call last):
+	...
+	ValueError: m_a can't be empty
+	>>> matrix_mul([[]], [1, 2])
+	Traceback (most recent call last):
+	...
+	TypeError: m_b must be a list of lists
+
+In addition, the elements of the matrices have to be numbers, whether int or float:
+
+	>>> matrix_mul([[1, 2], [3, 4.5]], [[6.7, 11], ['P', 5]])
+	Traceback (most recent call last):
+	...
+	TypeError: m_b should contain only integers or floats
+	>>> matrix_mul([[1, 2], [False, 6]], [[3, 6]])
+	Traceback (most recent call last):
+	...
+	TypeError: m_a should contain only integers or floats
+	>>> matrix_mul([[2, "num"]], [["float", 9.2]])
+	Traceback (most recent call last):
+	...
+	TypeError: m_a should contain only integers or floats
+	>>> matrix_mul([[2, False]], [[]])
+	Traceback (most recent call last):
+	...
+	ValueError: m_b can't be empty
+
+if m_a or m_b is not a rectangle (all ‘rows’ should be of the same size): raise a TypeError exception:
+
+	>>> matrix_mul([[1, 2], [3, 4, 5]], [[1, 2, 3]])
+	Traceback (most recent call last):
+	...
+	TypeError: each row of m_a must be of the same size
+	>>> matrix_mul([[1, 2], [3, 4]], [5, 6], [7])
+	Traceback (most recent call last):
+	...
+	TypeError: each row of m_b must be of the same size
+	>>> matrix_mul([[1, 2], [3]], [[4], [5, 6]])
+	Traceback (most recent call last):
+	...
+	TypeError: each row of m_a must be of the same size
+	>>> matrix_mul([[1, 2], []], [[]])
+	Traceback (most recent call last):
+	...
+	ValueError: m_b can't be empty
+
+
+If the users input matrices pass all these checks, first of all great job! Second, it will properly
+multiply them using the matrix multiplication technique, in which each row in m_a is multiplied by each
+column in m_b to form an element in the new matrix (let's call it, m_c). So with this logic, if m_a and
+m_b are 2x2 matrices:
+		m_c[0][0] = m_a[0][0] * m_b[0][0] + m_a[0][1] * m_b[1][0]
+and so on. For this to succeed, the number of lists in m_b must be equal to the row length of m_a. If
+this isn't the case, a value error exception is raised:
+
+	>>> matrix_mul([[1, 2, 3]], [[4, 5]])
+	Traceback (most recent call last):
+	...
+	ValueError: m_a and m_b can't be multiplied
+
+Now let's do some more testing!
+
+	>>> m_a = [[1, 2], [3, 4]]
+	>>> m_b = [[5, 6], [7, 8]]
+	>>> m_c = matrix_mul(m_a, m_b)
+	>>> m_c[0][0] == (m_a[0][0] * m_b[0][0]) + (m_a[0][1] * m_b[1][0])
+	True
+	>>> print(m_c)
+	[[19, 22], [43, 50]]
+	>>> print(matrix_mul([[1.0]], [[1.0]]))
+	[[1.0]]
+
