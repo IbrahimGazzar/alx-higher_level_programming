@@ -31,6 +31,8 @@ class Rectangle():
         """
         string = ""
         for i in range(0, self.__height):
+            if self.__width == 0:
+                break
             for j in range(0, self.__width):
                 string += "#"
             if i != self.__height - 1:
