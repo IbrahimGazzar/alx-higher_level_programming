@@ -16,4 +16,3 @@ class MyList(list):
         list_sorted = self[:]
         list_sorted.sort()
         print(list_sorted)
-        
