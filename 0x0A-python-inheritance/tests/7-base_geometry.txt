@@ -50,6 +50,14 @@ greater than zero, anything else raises an error:
 	Traceback (most recent call last):
 	...
 	TypeError: 34 must be an integer
+	>>> bg.integer_validator("Class", 4.0)
+	Traceback (most recent call last):
+	...
+	TypeError: Class must be an integer
+	>>> bg.integer_validator("Class", -4.0)
+	Traceback (most recent call last):
+	...
+	TypeError: Class must be an integer
 
 Right now, the function does nothing when recieving an appropritate value:
 
