@@ -1,0 +1,30 @@
+Test suite for 1-my_list.py
+============================
+
+This text file explains the code provided in 1-my_list.py and provides test cases for it
+
+first of all, we have to import our code before we can test it:
+	>>> MyList = __import__('1-my_list').MyList
+
+The class MyList is a subclass of the list object, the only difference between them is that MyList has
+a public instance method called print_sorted, which prints the list in a sorted fashion. For this task,
+we will assume that MyList at any time will only contain int elements:
+
+	>>> mymy = MyList([1, 2, 8, 5, 4])
+	>>> print(mymy)
+	[1, 2, 8, 5, 4]
+	>>> mymy.print_sorted()
+	[1, 2, 4, 5, 8]
+	>>> print(mymy)
+	[1, 2, 8, 5, 4]
+
+	>>> lislist = MyList()
+	>>> lislist.append(0)
+	>>> lislist.append(33.5)
+	>>> lislist.append(9.0)
+	>>> lislist.append(20)
+	>>> print(lislist)
+	[0, 33.5, 9.0, 20]
+	>>> lislist.print_sorted()
+	[0, 9.0, 20, 33.5]
+
