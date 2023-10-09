@@ -4,6 +4,7 @@
     inherits the common object of type list
 """
 
+
 class MyList(list):
     """
         A modified (better!) version of list
