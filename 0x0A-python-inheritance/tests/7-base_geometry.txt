@@ -46,8 +46,13 @@ greater than zero, anything else raises an error:
 	Traceback (most recent call last):
 	...
 	ValueError: Edmond must be greater than 0
+	>>> bg.integer_validator (34, "rule")
+	Traceback (most recent call last):
+	...
+	TypeError: 34 must be an integer
 
 Right now, the function does nothing when recieving an appropritate value:
 
+        >>> bg.integer_validator(value=34, name="rule")
 	>>> bg.integer_validator("my_int", 12)
 	>>> bg.integer_validator("width", 89)
