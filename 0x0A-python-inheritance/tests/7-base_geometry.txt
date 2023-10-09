@@ -1,0 +1,53 @@
+Test suite for 7-base_geometry.py
+==================================
+
+This text file explains the code provided in 7-base_geometry.py and provides test cases for it
+
+first of all, we have to import our code before we can test it:
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+The class BaseGeometry is a simple class, containing two functions; def area(self) that only raises an
+exception:
+
+	>>> bg = BaseGeometry()
+
+	>>> bg.area()
+	Traceback (most recent call last):
+	...
+	Exception: area() is not implemented
+
+The other is def integer_validator(self, name, value), which takes two inputs, name and value:
+
+	>>> bg.integer_validator()
+	Traceback (most recent call last):
+	...
+	TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+	>>> bg.integer_validator("hello")
+	Traceback (most recent call last):
+	...
+	TypeError: integer_validator() missing 1 required positional argument: 'value'
+	>>> bg.integer_validator(value=89)
+	Traceback (most recent call last):
+	...
+	TypeError: integer_validator() missing 1 required positional argument: 'name'
+
+For now name serves no purpose and is assumed to be a string. Value however, must be an integer value
+greater than zero, anything else raises an error:
+
+	>>> bg.integer_validator("John", "Wick")
+	Traceback (most recent call last):
+	...
+	TypeError: John must be an integer
+	>>> bg.integer_validator("Edmond", -1)
+	Traceback (most recent call last):
+	...
+	ValueError: Edmond must be greater than 0
+	>>> bg.integer_validator("Edmond", 0)
+	Traceback (most recent call last):
+	...
+	ValueError: Edmond must be greater than 0
+
+Right now, the function does nothing when recieving an appropritate value:
+
+	>>> bg.integer_validator("my_int", 12)
+	>>> bg.integer_validator("width", 89)
