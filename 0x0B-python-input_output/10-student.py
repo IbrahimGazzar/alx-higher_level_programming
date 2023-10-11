@@ -33,7 +33,7 @@ class Student:
             Args:
                 attrs (list): list of attribute to be returned
         """
-        if attrs:
+        if attrs and len(attrs) != 0:
             json = {}
             for i in attrs:
                 if i in self.__dict__.keys():
