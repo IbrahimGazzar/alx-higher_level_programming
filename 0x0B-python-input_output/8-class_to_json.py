@@ -2,7 +2,6 @@
 """
     This module turns a class into jason
 """
-import json
 
 
 def class_to_json(obj):
@@ -12,4 +11,4 @@ def class_to_json(obj):
         Args:
             obj (obj): class object to be converted
     """
-    return json.loads(json.dumps(obj.__dict__))
+    return obj.__dict__
