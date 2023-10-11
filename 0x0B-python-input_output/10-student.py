@@ -34,6 +34,9 @@ class Student:
                 attrs (list): list of attribute to be returned
         """
         if attrs and type(attrs) is list:
+            for i in attrs:
+                if type(i) is not str:
+                    return self.__dict__
             json = {}
             for i in attrs:
                 if i in self.__dict__.keys():
