@@ -1,0 +1,16 @@
+#!/usr/bin/python3
+"""
+    This module handles importing JSON objects
+"""
+import json
+
+
+def load_from_json_file(filename):
+    """
+        loads JSON object from a file
+
+        Args:
+            filename (str): File to be imported from
+    """
+    with open(filename, encoding="utf-8") as f:
+        return json.load(f)
