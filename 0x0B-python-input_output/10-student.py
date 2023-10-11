@@ -33,11 +33,13 @@ class Student:
             Args:
                 attrs (list): list of attribute to be returned
         """
-        if attrs and type(attrs) is list:
+        if attrs is not None and type(attrs) is list:
+            json = {}
+            if len(attrs) == 0:
+                return json
             for i in attrs:
                 if type(i) is not str:
                     return self.__dict__
-            json = {}
             for i in attrs:
                 if i in self.__dict__.keys():
                     json[i] = self.__dict__[i]
