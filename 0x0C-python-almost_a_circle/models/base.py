@@ -23,7 +23,7 @@ class Base:
             Args:
                 id (int): id of object
         """
-        if id:
+        if id is not None:
             self.id = id
         else:
             type(self).__nb_objects += 1
