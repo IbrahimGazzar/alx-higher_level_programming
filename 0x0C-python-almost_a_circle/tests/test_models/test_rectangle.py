@@ -31,6 +31,20 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(f"{self.r3.width}, {self.r3.height}, {self.r3.x},"
                          + f" {self.r3.y}, {self.r3.id}", "3, 3, 1, 9, -1")
 
+    def test_rect_str(self):
+        """
+            Tests the string representation of rect
+        """
+        self.assertEqual(self.r1.__str__(), f"[Rectangle] ({self.r1.id}) "
+                         + f"{self.r1.x}/{self.r1.y} - {self.r1.width}/"
+                         + f"{self.r1.height}")
+        self.assertEqual(self.r2.__str__(), f"[Rectangle] ({self.r2.id}) "
+                         + f"{self.r2.x}/{self.r2.y} - {self.r2.width}/"
+                         + f"{self.r2.height}")
+        self.assertEqual(self.r3.__str__(), f"[Rectangle] ({self.r3.id}) "
+                         + f"{self.r3.x}/{self.r3.y} - {self.r3.width}/"
+                         + f"{self.r3.height}")
+
     def test_rect_valid(self):
         """
             Tests the validity of rectangle attrs

@@ -28,12 +28,11 @@ class Rectangle(Base):
                 y (int): y position
                 id (int): optional custom id
         """
-
-        Base.__init__(self, id)
         self.width = width
         self.height = height
         self.x = x
         self.y = y
+        Base.__init__(self, id)
 
     @property
     def width(self):
@@ -82,6 +81,14 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
+
+    def __str__(self):
+        """
+            Returns standard string representation
+            of our rectangle object
+        """
+        return (f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - "
+                + f"{self.__width}/{self.__height}")
 
     def area(self):
         """
