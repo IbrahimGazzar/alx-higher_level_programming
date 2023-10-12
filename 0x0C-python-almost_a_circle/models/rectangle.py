@@ -28,7 +28,7 @@ class Rectangle(Base):
                 y (int): y position
                 id (int): optional custom id
         """
-        
+
         Base.__init__(self, id)
         self.width = width
         self.height = height
@@ -83,3 +83,8 @@ class Rectangle(Base):
             raise ValueError("y must be >= 0")
         self.__y = value
 
+    def area(self):
+        """
+            Returns the rectangle's area
+        """
+        return self.__width * self.__height

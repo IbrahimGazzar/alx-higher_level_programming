@@ -22,12 +22,12 @@ class TestRectangle(unittest.TestCase):
         """
             Tests rectangle attr validation
         """
-        self.assertEqual(f"{self.r1.width}, {self.r1.height}, {self.r1.x}, {self.r1.y}, {self.r1.id}", \
-                         "10, 5, 0, 0, 4")
-        self.assertEqual(f"{self.r2.width}, {self.r2.height}, {self.r2.x}, {self.r2.y}, {self.r2.id}", \
-                         "9, 8, 3, 0, 5")
-        self.assertEqual(f"{self.r3.width}, {self.r3.height}, {self.r3.x}, {self.r3.y}, {self.r3.id}", \
-                         "3, 10, 1, 9, -1")
+        self.assertEqual(f"{self.r1.width}, {self.r1.height}, {self.r1.x},"
+                         + f" {self.r1.y}, {self.r1.id}", "10, 5, 0, 0, 4")
+        self.assertEqual(f"{self.r2.width}, {self.r2.height}, {self.r2.x},"
+                         + f" {self.r2.y}, {self.r2.id}", "9, 8, 3, 0, 5")
+        self.assertEqual(f"{self.r3.width}, {self.r3.height}, {self.r3.x},"
+                         + f" {self.r3.y}, {self.r3.id}", "3, 10, 1, 9, -1")
 
     def test_rect_valid(self):
         """
@@ -42,4 +42,11 @@ class TestRectangle(unittest.TestCase):
         self.assertRaises(ValueError, Rectangle, 20, -1)
         self.assertRaises(ValueError, Rectangle, -1, "W")
         self.assertRaises(ValueError, Rectangle, 20, 10, 90, -1)
-        
+
+    def test_rect_area(self):
+        """
+            Tests the rectangle's area method
+        """
+        self.assertEqual(self.r1.area(), 50)
+        self.assertEqual(self.r2.area(), 9 * 8)
+        self.assertEqual(self.r3.area(), 30)
