@@ -46,3 +46,20 @@ class Square(Rectangle):
         """
         return (f"[Square] ({self.id}) {self.x}/{self.y}"
                 + f" - {self.width}")
+
+    def update(self, *args, **kwargs):
+        """
+            Updates the attributes of square
+
+            Args:
+                args (list): unkeyworded list of inputs
+                kwargs (list): keyworded list of inputs
+        """
+        k = ["id", "size", "x", "y"]
+        if args:
+            for i in range(min(len(args), len(k))):
+                setattr(self, k[i], args[i])
+        else:
+            for i in k:
+                if i in kwargs:
+                    setattr(self, i, kwargs[i])

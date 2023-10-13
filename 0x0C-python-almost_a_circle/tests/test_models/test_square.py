@@ -97,7 +97,17 @@ class TestSquare(unittest.TestCase):
         """
             Tests the update function of square
         """
-        pass
+        self.s1.update(10, 10, 10, 10)
+        self.assertEqual(self.s1.__str__(), "[Square] (10) 10/10 - 10")
+        self.s1.update(4)
+        self.assertEqual(self.s1.__str__(), "[Square] (4) 10/10 - 10")
+        self.assertRaises(TypeError, self.s1.update, 3, "J", 0)
+        self.assertRaises(ValueError, self.s1.update, 0, -1, "k", 10)
+
+        self.s1.update(size=5, y=2, id=-6, x=1)
+        self.assertEqual(self.s1.__str__(), "[Square] (-6) 1/2 - 5")
+        self.assertRaises(ValueError, self.s1.update, id=1, x="2", size=-9)
+        self.assertRaises(ValueError, self.s1.update, id=1, size=-9, x="2")
 
     def TearDown(self):
         """
