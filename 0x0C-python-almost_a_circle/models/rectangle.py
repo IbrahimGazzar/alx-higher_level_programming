@@ -109,14 +109,20 @@ class Rectangle(Base):
                 print("#", end='')
             print()
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
             Updates the attributes of rectangle
             in this order: id, width, height, x, y
 
             Args:
-                @args: the new arguments
+                args (list): the new arguments
+                kwargs (list): keyworded new arguments
         """
         k = ["id", "width", "height", "x", "y"]
-        for i in range(min(len(args), len(k))):
-            setattr(self, k[i], args[i])
+        if args:
+            for i in range(min(len(args), len(k))):
+                setattr(self, k[i], args[i])
+        else:
+            for i in k:
+                if i in kwargs:
+                    setattr(self, i, kwargs[i])

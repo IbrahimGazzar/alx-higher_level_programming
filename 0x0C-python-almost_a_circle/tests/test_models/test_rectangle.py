@@ -102,6 +102,15 @@ class TestRectangle(unittest.TestCase):
         self.assertRaises(ValueError, self.r1.update, 10, -2)
         self.assertRaises(TypeError, self.r1.update, 10, "2")
 
+        self.r1.update(x=4, y=1, id=0, height=4)
+        self.assertEqual(self.r1.id, 0)
+        self.assertEqual(self.r1.area(), 40)
+        self.assertEqual(self.r1.x, 4)
+
+        self.r1.update(10, id=9, width=3)
+        self.assertEqual(self.r1.id, 10)
+        self.assertEqual(self.r1.area(), 40)
+
     def TearDown(self):
         """
             Deletes objects after testing
