@@ -32,3 +32,14 @@ class TestBase(unittest.TestCase):
         self.assertEqual(self.b4.id, 3)
         self.assertEqual(self.b5.id, -9)
         self.assertEqual(self.b6.id, 0)
+
+    def TearDown(self):
+        """
+            Deletes objects after testing
+        """
+        del self.b1
+        del self.b2
+        del self.b3
+        del self.b4
+        del self.b5
+        del self.b6
