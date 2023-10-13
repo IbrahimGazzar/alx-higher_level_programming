@@ -88,3 +88,24 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(ac1, ex1)
         self.assertEqual(ac2, ex2)
         self.assertEqual(ac3, ex3)
+
+    def test_rect_update(self):
+        """
+            Tests the update function of rect
+        """
+        self.r1.update(10, 10, 10, 10)
+        self.assertEqual(self.r1.id, 10)
+        self.assertEqual(self.r1.area(), 100)
+        self.assertEqual(self.r1.x, 10)
+        self.r1.update(69)
+        self.assertEqual(self.r1.id, 69)
+        self.assertRaises(ValueError, self.r1.update, 10, -2)
+        self.assertRaises(TypeError, self.r1.update, 10, "2")
+
+    def TearDown(self):
+        """
+            Deletes objects after testing
+        """
+        del self.r1
+        del self.r2
+        del self.r3
