@@ -72,8 +72,8 @@ class TestRectangle(unittest.TestCase):
             Tests the display function of rect
         """
         ex1 = "##\n##\n##\n##\n##\n"
-        ex2 = "#########\n"
-        ex3 = "###\n###\n###\n"
+        ex2 = "   #########\n"
+        ex3 = "\n\n\n\n\n\n\n\n\n ###\n ###\n ###\n"
         with patch('sys.stdout', new_callable=io.StringIO) as mock_stdout:
             self.r1.display()
             ac1 = mock_stdout.getvalue()

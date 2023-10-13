@@ -100,7 +100,11 @@ class Rectangle(Base):
         """
             Displays the rectangle object with hashes
         """
+        for i in range(self.__y):
+            print()
         for i in range(self.__height):
+            for i in range(self.__x):
+                print(" ", end='')
             for i in range(self.__width):
                 print("#", end='')
             print()
