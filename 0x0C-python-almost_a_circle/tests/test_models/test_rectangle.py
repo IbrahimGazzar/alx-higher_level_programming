@@ -111,6 +111,17 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(self.r1.id, 10)
         self.assertEqual(self.r1.area(), 40)
 
+    def test_rect_dict(self):
+        """
+            Tests the to_dict function of rect
+        """
+        dict_1 = {'id': self.r1.id, 'width': 2, 'height': 5, 'x': 0, 'y': 0}
+        dict_2 = {'id': self.r2.id, 'width': 9, 'height': 1, 'x': 3, 'y': 0}
+        dict_3 = {'id': -1, 'width': 3, 'height': 3, 'x': 1, 'y': 9}
+        self.assertEqual(self.r1.to_dictionary(), dict_1)
+        self.assertEqual(self.r2.to_dictionary(), dict_2)
+        self.assertEqual(self.r3.to_dictionary(), dict_3)
+
     def TearDown(self):
         """
             Deletes objects after testing

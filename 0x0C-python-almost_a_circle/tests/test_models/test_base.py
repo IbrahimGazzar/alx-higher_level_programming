@@ -21,7 +21,7 @@ class TestBase(unittest.TestCase):
         self.b4 = Base()
         self.b5 = Base(-9)
         self.b6 = Base(0)
-        
+
     def test_base_id(self):
         """
             tests the values of base ids
