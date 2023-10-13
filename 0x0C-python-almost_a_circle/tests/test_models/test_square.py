@@ -109,6 +109,19 @@ class TestSquare(unittest.TestCase):
         self.assertRaises(ValueError, self.s1.update, id=1, x="2", size=-9)
         self.assertRaises(ValueError, self.s1.update, id=1, size=-9, x="2")
 
+    def test_sqr_dict(self):
+        """
+            Tests the to_dictionary function of sqr
+        """
+        dict_1 = {'id': self.s1.id, 'size': 3, 'x': 0, 'y': 0}
+        dict_2 = {'id': self.s2.id, 'size': 2, 'x': 2, 'y': 0}
+        dict_3 = {'id': self.s3.id, 'size': 4, 'x': 1, 'y': 4}
+        dict_4 = {'id': -1, 'size': 1, 'x': 2, 'y': 1}
+        self.assertEqual(self.s1.to_dictionary(), dict_1)
+        self.assertEqual(self.s2.to_dictionary(), dict_2)
+        self.assertEqual(self.s3.to_dictionary(), dict_3)
+        self.assertEqual(self.s4.to_dictionary(), dict_4)
+
     def TearDown(self):
         """
             Deletes objects after testing
