@@ -80,6 +80,19 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(ac3, ex3)
         self.assertEqual(ac4, ex4)
 
+    def test_sqr_size(self):
+        """
+            Tests the size getter setter set of square
+        """
+        self.assertEqual(self.s1.size, 3)
+        self.s1.size = 4
+        self.assertEqual(self.s1.size, 4)
+        self.assertEqual(self.s1.height, 4)
+        with self.assertRaises(TypeError):
+            self.s1.size = "9"
+        with self.assertRaises(ValueError):
+            self.s1.size = 0
+
     def test_sqr_update(self):
         """
             Tests the update function of square
