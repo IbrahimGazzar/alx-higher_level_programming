@@ -4,6 +4,8 @@
 """
 import unittest
 from models.base import Base
+from models.rectangle import Rectangle
+from models.square import Square
 
 
 class TestBase(unittest.TestCase):
@@ -32,6 +34,24 @@ class TestBase(unittest.TestCase):
         self.assertEqual(self.b4.id, 3)
         self.assertEqual(self.b5.id, -9)
         self.assertEqual(self.b6.id, 0)
+
+    def test_base_json(self):
+        """
+            tests Base's to_json function
+        """
+        r1 = Rectangle(2, 2, 2, 2, 2)
+        s1 = Square(10, 2, 3, 0)
+        r1_dict = dict(sorted(r1.to_dictionary().items()))
+        s1_dict = dict(sorted(s1.to_dictionary().items()))
+
+        self.assertEqual(self.b1.to_json_string([r1_dict]), "[{\"height\": 2"
+                         + ", \"id\": 2, \"width\": 2, \"x\": 2, \"y\": 2}]")
+        self.assertEqual(self.b1.to_json_string([s1_dict]), "[{\"id\": 0, \""
+                         + "size\": 10, \"x\": 2, \"y\": 3}]")
+        self.assertEqual(self.b1.to_json_string([r1_dict, s1_dict]), "[{\""
+                         + "height\": 2, \"id\": 2, \"width\": 2, \"x\": 2"
+                         + ", \"y\": 2}, {\"id\": 0, \"size\": 10, "
+                         + "\"x\": 2, \"y\": 3}]")
 
     def TearDown(self):
         """

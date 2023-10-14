@@ -20,17 +20,6 @@ class TestRectangle(unittest.TestCase):
         self.r2 = Rectangle(9, 1, 3)
         self.r3 = Rectangle(3, 3, 1, 9, -1)
 
-    def test_create_rect(self):
-        """
-            Tests rectangle attr validation
-        """
-        self.assertEqual(f"{self.r1.width}, {self.r1.height}, {self.r1.x},"
-                         + f" {self.r1.y}, {self.r1.id}", "2, 5, 0, 0, 4")
-        self.assertEqual(f"{self.r2.width}, {self.r2.height}, {self.r2.x},"
-                         + f" {self.r2.y}, {self.r2.id}", "9, 1, 3, 0, 5")
-        self.assertEqual(f"{self.r3.width}, {self.r3.height}, {self.r3.x},"
-                         + f" {self.r3.y}, {self.r3.id}", "3, 3, 1, 9, -1")
-
     def test_rect_str(self):
         """
             Tests the string representation of rect

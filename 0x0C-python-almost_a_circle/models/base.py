@@ -3,6 +3,7 @@
     This module contains the base class that
     all others will inherit from
 """
+import json
 
 
 class Base:
@@ -28,3 +29,16 @@ class Base:
         else:
             type(self).__nb_objects += 1
             self.id = type(self).__nb_objects
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """
+            returns the JSON representation of a
+            list of dictionaries
+
+            Args:
+                list_dictionaries: list of dictionaries
+        """
+        if not list_dictionaries:
+            return "[]"
+        return json.dumps(list_dictionaries)
