@@ -25,8 +25,9 @@ class TestBase(unittest.TestCase):
         self.b6 = Base(0)
         self.r1 = Rectangle(2, 2, 2, 2, 2)
         self.s1 = Square(10, 2, 3, 0)
+        self.s2 = Square(4, 4, 4, 4)
 
-    def test_base_id(self):
+    def test_base_0_id(self):
         """
             tests the values of base ids
         """
@@ -58,9 +59,8 @@ class TestBase(unittest.TestCase):
         """
             Tests Base's JSON to file function
         """
-        s2 = Square(4, 4, 4, 4)
         Rectangle.save_to_file([self.r1])
-        Square.save_to_file([self.s1, s2])
+        Square.save_to_file([self.s1, self.s2])
         Base.save_to_file([])
 
         with open("Rectangle.json", "r") as f:
@@ -72,6 +72,18 @@ class TestBase(unittest.TestCase):
                              + "\"size\": 4, \"x\": 4, \"y\": 4}]")
         with open("Base.json", "r") as f:
             self.assertEqual(f.read(), "[]")
+
+    def test_base_from_json(self):
+        """
+            Tests Base's from json function
+        """
+        r_dict = [self.r1.to_dictionary()]
+        s_dict = [self.s1.to_dictionary(), self.s2.to_dictionary()]
+        str1 = self.b1.to_json_string(r_dict)
+        str2 = self.b1.to_json_string(s_dict)
+
+        self.assertEqual(r_dict, self.b1.from_json_string(str1))
+        self.assertEqual(s_dict, self.b1.from_json_string(str2))
 
     def TearDown(self):
         """

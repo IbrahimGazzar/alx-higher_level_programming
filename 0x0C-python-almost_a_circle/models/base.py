@@ -61,3 +61,16 @@ class Base:
         if not list_dictionaries:
             return "[]"
         return json.dumps(list_dictionaries)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """
+            Converts a json string of a list to a list
+
+            Args:
+                json_string (str): json string to be
+                converted
+        """
+        if not json_string:
+            return []
+        return json.loads(json_string)
