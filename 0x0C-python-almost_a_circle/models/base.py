@@ -67,6 +67,20 @@ class Base:
         obj.update(**dictionary)
         return obj
 
+    @classmethod
+    def load_from_file(cls):
+        """
+            Loads data from a file into a list
+            of objects
+        """
+        filename = str(cls.__name__) + ".json"
+        with open(filename, "r", encoding="utf-8") as f:
+            list_json = json.load(f)
+        list_obj = []
+        for i in list_json:
+            list_obj.append(cls.create(**i))
+        return list_obj
+
     @staticmethod
     def to_json_string(list_dictionaries):
         """

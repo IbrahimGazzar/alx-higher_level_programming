@@ -97,6 +97,27 @@ class TestBase(unittest.TestCase):
         self.assertEqual(self.r1.__str__(), r1_dup.__str__())
         self.assertEqual(s3.__str__(), "[Square] (11) 0/0 - 5")
 
+    def test_base_inst(self):
+        """
+            Tests the load from file function of Base
+        """
+        r_list = [self.r1]
+        s_list = [self.s1, self.s2]
+        b_list = []
+        Base.save_to_file(b_list)
+        Rectangle.save_to_file(r_list)
+        Square.save_to_file(s_list)
+        list_r = Rectangle.load_from_file()
+        list_b = Base.load_from_file()
+        list_s = Square.load_from_file()
+
+        for i in range(len(list_r)):
+            self.assertEqual(r_list[i].__str__(), list_r[i].__str__())
+        for i in range(len(list_s)):
+            self.assertEqual(s_list[i].__str__(), list_s[i].__str__())
+        for i in range(len(list_b)):
+            self.assertEqual(b_list[i].__str__(), list_b[i].__str__())
+
     def TearDown(self):
         """
             Deletes objects after testing
