@@ -85,6 +85,18 @@ class TestBase(unittest.TestCase):
         self.assertEqual(r_dict, self.b1.from_json_string(str1))
         self.assertEqual(s_dict, self.b1.from_json_string(str2))
 
+    def test_base_create(self):
+        """
+            Tests Base's create function
+        """
+        s1_dup = Square.create(**(self.s1.to_dictionary()))
+        r1_dup = Rectangle.create(**(self.r1.to_dictionary()))
+        s3 = Square.create(**{'size': 5, 'id': 11})
+
+        self.assertEqual(self.s1.__str__(), s1_dup.__str__())
+        self.assertEqual(self.r1.__str__(), r1_dup.__str__())
+        self.assertEqual(s3.__str__(), "[Square] (11) 0/0 - 5")
+
     def TearDown(self):
         """
             Deletes objects after testing

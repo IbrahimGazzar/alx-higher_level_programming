@@ -48,6 +48,25 @@ class Base:
         with open(filename, 'w', encoding="utf-8") as f:
             json.dump(list_json, f)
 
+    @classmethod
+    def create(cls, **dictionary):
+        """
+            Creates an object of type class with
+            given attributes set
+
+            Args:
+                dictionary (dict): dict containing
+                    the values to create with
+        """
+        if cls.__name__ == "Rectangle":
+            obj = cls(1, 1)
+        elif cls.__name__ == "Square":
+            obj = cls(1)
+        else:
+            return None
+        obj.update(**dictionary)
+        return obj
+
     @staticmethod
     def to_json_string(list_dictionaries):
         """
