@@ -75,8 +75,11 @@ class Base:
         """
         filename = str(cls.__name__) + ".json"
         list_obj = []
-        with open(filename, "r", encoding="utf-8") as f:
-            json_str = f.read()
+        try:
+            with open(filename, "r", encoding="utf-8") as f:
+                json_str = f.read()
+        except Exception:
+            return "[]"
         list_dict = cls.from_json_string(json_str)
         for i in list_dict:
             list_obj.append(cls.create(**i))
@@ -93,7 +96,7 @@ class Base:
                     dictionaries to be converted
         """
         if list_dictionaries is None or list_dictionaries == []:
-            return json.dumps([])
+            return "[]"
         return json.dumps(list_dictionaries)
 
     @staticmethod
