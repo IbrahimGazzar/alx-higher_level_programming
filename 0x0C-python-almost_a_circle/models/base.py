@@ -92,7 +92,7 @@ class Base:
                 list_dictionaries (list): list of
                     dictionaries to be converted
         """
-        if not list_dictionaries:
+        if list_dictionaries is None or list_dictionaries == []:
             return "[]"
         if type(list_dictionaries) is list:
             return json.dumps(list_dictionaries)
