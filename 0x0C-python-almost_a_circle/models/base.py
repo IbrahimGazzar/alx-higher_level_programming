@@ -96,7 +96,7 @@ class Base:
                     dictionaries to be converted
         """
         if list_dictionaries is None or list_dictionaries == []:
-            return "[]"
+            return []
         return json.dumps(list_dictionaries)
 
     @staticmethod
