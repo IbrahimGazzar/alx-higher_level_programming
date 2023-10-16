@@ -79,7 +79,7 @@ class Base:
             with open(filename, "r", encoding="utf-8") as f:
                 json_str = f.read()
         except Exception:
-            return "[]"
+            return []
         list_dict = cls.from_json_string(json_str)
         for i in list_dict:
             list_obj.append(cls.create(**i))
