@@ -94,8 +94,10 @@ class Base:
         """
         if list_dictionaries is None or list_dictionaries == []:
             return "[]"
-        else:
+        try:
             return json.dumps(list_dictionaries)
+        except:
+            return "[]"
 
     @staticmethod
     def from_json_string(json_string):
