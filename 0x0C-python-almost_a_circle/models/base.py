@@ -41,12 +41,12 @@ class Base:
                     to be saved
         """
         filename = str(cls.__name__) + ".json"
-        list_json = []
-        if list_objs is not None:
-            for i in list_objs:
-                list_json.append(dict(sorted(i.to_dictionary().items())))
+        list_dict = []
+        for i in list_objs:
+            list_dict.append(dict(sorted(i.to_dictionary().items())))
+        list_json = cls.to_json_string(list_dict)
         with open(filename, 'w', encoding="utf-8") as f:
-            json.dump(list_json, f)
+            f.write(list_json)
 
     @classmethod
     def create(cls, **dictionary):
@@ -91,7 +91,7 @@ class Base:
                 list_dictionaries (list): list of
                     dictionaries to be converted
         """
-        if not list_dictionaries:
+        if not list_dictionaries or len(list_dictionaries) == 0:
             return "[]"
         return json.dumps(list_dictionaries)
 
