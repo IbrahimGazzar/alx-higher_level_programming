@@ -55,6 +55,10 @@ class Base:
                     to be saved
         """
         filename = str(cls.__name__) + ".json"
+        if list_objs is None:
+            with open(filename, 'w', encoding="utf-8") as f:
+                f.write("[]")
+                return
         list_dict = []
         for i in list_objs:
             list_dict.append(dict(sorted(i.to_dictionary().items())))
