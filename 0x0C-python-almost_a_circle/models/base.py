@@ -92,12 +92,11 @@ class Base:
                 list_dictionaries (list): list of
                     dictionaries to be converted
         """
-        if list_dictionaries is None or list_dictionaries == []:
+        if list_dictionaries is None \
+           or type(list_dictionaries) is not list\
+           or list_dictionaries == []:
             return "[]"
-        try:
-            return json.dumps(list_dictionaries)
-        except:
-            return "[]"
+        return json.dumps(list_dictionaries)
 
     @staticmethod
     def from_json_string(json_string):
