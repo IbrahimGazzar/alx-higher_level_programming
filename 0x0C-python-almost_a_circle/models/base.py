@@ -74,10 +74,11 @@ class Base:
             of objects
         """
         filename = str(cls.__name__) + ".json"
-        with open(filename, "r", encoding="utf-8") as f:
-            list_json = json.load(f)
         list_obj = []
-        for i in list_json:
+        with open(filename, "r", encoding="utf-8") as f:
+            json_str = f.read()
+        list_dict = cls.from_json_string(json_str)
+        for i in list_dict:
             list_obj.append(cls.create(**i))
         return list_obj
 
