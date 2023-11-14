@@ -1,0 +1,4 @@
+def islower(c):
+    if c is in "abcdefghijklmnopqrstuvwxyz":
+        return True
+    return False

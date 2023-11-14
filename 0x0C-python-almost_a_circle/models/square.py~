@@ -1,0 +1,39 @@
+#!/usr/bin/python3
+"""
+    This module contains the definition for
+    a Square Class
+"""
+from models.rectangle import Rectangle
+
+
+class Square(Rectangle):
+    """
+        A square object based on a Rectangle
+
+        Attributes:
+            __nb_objects (int): counter for un-ided objects
+            id (int): id of the square object
+            __width (int): width of the square
+            __height (int): height of the square
+            __x (int): x position of the square
+            __y (int): y position of the square
+    """
+    def __init__(self, size, x=0, y=0, id=None):
+        """
+            Intialization function of the square
+
+            Args:
+                size (int): side length of the square
+                x (int): given x-position of the square
+                y (int): given y-position of the square
+                id (int): given id of the square
+        """
+        Rectangle.__init__(self, size, size, x, y, id)
+
+    def __str__(self):
+        """
+            Returns the formatted string representation of
+            square
+        """
+        return (f"[Square] ({self.id}) {self.x}/{self.y}"
+            + f" - {self.width}")

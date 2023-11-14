@@ -1,0 +1,19 @@
+#!/usr/bin/python3
+def add_tuple(tuple_a=(), tuple_b=()):
+    if tuple_a[0] == None:
+        x1 = 0
+    else:
+        x1 = tuple_a[0]
+    if tuple_a[1] == None:
+        y1 = 0
+    else:
+        y1 = tuple_a[1]
+    if tuple_b[0] == None:
+        x2 = 0
+    else:
+        x2 = tuple_b[0]
+    if tuple_b[1] == None:
+        y2 = 0
+    else:
+        y2 = tuple_b[1]
+    return (x1 + x2, y1 + y2)

@@ -1,0 +1,3 @@
+-- This script lists all MySQL tables on this server
+-- This query shows all the databases on the server
+SHOW DATABASES;

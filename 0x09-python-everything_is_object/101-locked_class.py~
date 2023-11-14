@@ -1,0 +1,23 @@
+#!/usr/bin/python3
+"""
+    This module contains a locked class
+"""
+
+
+class LockedClass():
+    """
+        This class prevents the addition of new
+        attributes, except a secret first name one
+    """
+    def __setattr__(self, key, value):
+        """
+            Instance method that controls the setting
+            of attributes
+
+            Args:
+                key (str): name of the new attribute
+                value (any): value to be set to key
+        """
+        if (key == "first_name"):
+            object.__setattr__(self, key, value)
+
