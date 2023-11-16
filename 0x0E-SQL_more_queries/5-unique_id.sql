@@ -1,5 +1,3 @@
 -- A script that creates the table unique_id
-CREATE TABLE IF NOT EXISTS unique_id(
-       id INT DFAULT 1 UNIQUE,
-       name VARCHAR(256)
-);
+-- Create table
+CREATE TABLE IF NOT EXISTS unique_id(id INT DFAULT 1 UNIQUE, name VARCHAR(256));
