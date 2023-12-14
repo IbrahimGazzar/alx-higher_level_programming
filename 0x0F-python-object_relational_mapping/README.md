@@ -1,0 +1,1 @@
+This directory contains implementations of database management using Python. Which is done using one of two methods: The first is using the MySQLdb module to connect to MySQL and send queries to be executed, or using the SQLAlchemy module, which is an Object Relational Mapper (ORM).
