@@ -1,9 +1,10 @@
 #!/usr/bin/python3
-import MySQLdb
-from sys import argv
 """
 This script prints all the objects in table States in a given database
 """
+import MySQLdb
+from sys import argv
+
 
 if __name__ == '__main__':
     conn = MySQLdb.connect(host="localhost", port=3306, user=argv[1],
